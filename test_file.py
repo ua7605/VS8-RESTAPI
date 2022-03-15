@@ -11,7 +11,7 @@ if __name__ == '__main__':
     # print(database.get_vessel_current_speed())
     # print(database.get_vessel_current_heading())
     print(database.get_vessel_current_location())
-
+    print(database.get_vessel_historical_data())
 
 
 

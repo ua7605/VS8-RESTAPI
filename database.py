@@ -29,3 +29,6 @@ class Database:
 
     def get_vessel_current_location(self):
         return self.latest_value()["latitude"], self.latest_value()["longitude"]
+
+    def get_vessel_historical_data(self):
+        return self.db.all()
