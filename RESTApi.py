@@ -22,6 +22,11 @@ class VesselSpeed(Resource):
         return {"speed": database.get_vessel_current_speed()}
 
 
+class VesselHeading(Resource):
+    def get(self):
+        return {"heading": database.get_vessel_current_heading()}
+
+
 class HelloWorld(Resource):
     def get(self):
         return {"about": "Hello world"}
@@ -40,3 +45,4 @@ api.add_resource(HelloWorld, "/helloworld")
 api.add_resource(Multi, "/multi/go/<int:num>")
 api.add_resource(RetrieveVesselData, "/data")
 api.add_resource(VesselSpeed, "/data/speed")
+api.add_resource(VesselHeading, "/data/heading")
