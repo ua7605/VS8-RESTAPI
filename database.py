@@ -20,3 +20,12 @@ class Database:
     def latest_value(self):
         data = self.db.all()
         return data[len(data) - 1]
+
+    def get_vessel_current_speed(self):
+        return self.latest_value()["sogkph"]
+
+    def get_vessel_current_heading(self):
+        return self.latest_value()["headingTrueDegrees"]
+
+    def get_vessel_current_location(self):
+        return self.latest_value()["latitude"], self.latest_value()["longitude"]

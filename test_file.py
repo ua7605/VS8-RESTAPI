@@ -7,7 +7,10 @@ if __name__ == '__main__':
     # print(last_row)
     # print(len(database.db))
 
-    print(database.latest_value())
+    # print(database.latest_value())
+    # print(database.get_vessel_current_speed())
+    # print(database.get_vessel_current_heading())
+    print(database.get_vessel_current_location())
 
 
 
