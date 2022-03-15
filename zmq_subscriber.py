@@ -75,6 +75,11 @@ class ZMQSubscriberSeafar:
 
             data = Parser(message)
 
+            # TODO: I added this to use the database
+            # The database is for the moment out commented at the Virtual Wall just for storing puposes sine nobody
+            # is using it right now.
+            db.insert(data)
+
             write_to_json(path='./', file_name='data.json', data=message)
 
             publisher.publisher_zmq.publish("type", json.dumps({"type": data.type}))
@@ -97,6 +102,4 @@ class ZMQSubscriberSeafar:
 
             publisher.publisher_zmq.publish("allData", json.dumps(message))
 
-            # The database is for the moment out commented at the Virtual Wall just for storing puposes sine nobody
-            # is using it right now.
-            # db.insert(data)
+
