@@ -27,6 +27,12 @@ class VesselHeading(Resource):
         return {"heading": database.get_vessel_current_heading()}
 
 
+class VesselLocation(Resource):
+    def get(self):
+        location = database.get_vessel_current_location()
+        return {"latitude": location[0], "longitude": location[1]}
+
+
 class HelloWorld(Resource):
     def get(self):
         return {"about": "Hello world"}
@@ -46,3 +52,4 @@ api.add_resource(Multi, "/multi/go/<int:num>")
 api.add_resource(RetrieveVesselData, "/data")
 api.add_resource(VesselSpeed, "/data/speed")
 api.add_resource(VesselHeading, "/data/heading")
+api.add_resource(VesselLocation, "/data/location")
