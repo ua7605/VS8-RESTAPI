@@ -33,6 +33,11 @@ class VesselLocation(Resource):
         return {"latitude": location[0], "longitude": location[1]}
 
 
+class VesselHistoricalData(Resource):
+    def get(self):
+        return {database.get_vessel_historical_data()}
+
+
 class HelloWorld(Resource):
     def get(self):
         return {"about": "Hello world"}
@@ -53,3 +58,4 @@ api.add_resource(RetrieveVesselData, "/data")
 api.add_resource(VesselSpeed, "/data/speed")
 api.add_resource(VesselHeading, "/data/heading")
 api.add_resource(VesselLocation, "/data/location")
+api.add_resource(VesselHistoricalData, "/data/historicalData")
