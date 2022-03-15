@@ -10,8 +10,11 @@ if __name__ == '__main__':
     # print(database.latest_value())
     # print(database.get_vessel_current_speed())
     # print(database.get_vessel_current_heading())
-    print(database.get_vessel_current_location())
-    print(database.get_vessel_historical_data())
+    #print(database.get_vessel_current_location())
+    #print(database.get_vessel_historical_data())
+    print(str(database.get_vessel_historical_data()).replace('[', '{', 1).replace(']', '}', 1))
+    text:str = "hello"
+
 
 
 
