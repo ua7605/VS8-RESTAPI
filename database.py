@@ -16,3 +16,7 @@ class Database:
             'headingTrueDegrees': data.headingTrueDegrees,
             'epochSeconds': data.epochSeconds
         })
+
+    def latest_value(self):
+        data = self.db.all()
+        return data[len(data) - 1]
