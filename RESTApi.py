@@ -35,7 +35,8 @@ class VesselLocation(Resource):
 
 class VesselHistoricalData(Resource):
     def get(self):
-        return str(database.get_vessel_historical_data()).replace('[', '{', 1).replace(']', '}', 1)
+        return json.dumps(database.get_vessel_historical_data())
+        #return str(database.get_vessel_historical_data()).replace('[', '{', 1).replace(']', '}', 1)
 
 
 class HelloWorld(Resource):

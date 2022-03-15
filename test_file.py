@@ -1,3 +1,5 @@
+import json
+
 from database import Database
 
 if __name__ == '__main__':
@@ -12,7 +14,12 @@ if __name__ == '__main__':
     # print(database.get_vessel_current_heading())
     #print(database.get_vessel_current_location())
     #print(database.get_vessel_historical_data())
-    print(str(database.get_vessel_historical_data()).replace('[', '{', 1).replace(']', '}', 1))
+    json_string = database.get_vessel_historical_data()#str(database.get_vessel_historical_data()).replace('[', '{', 1).replace(']', '}', 1)
+    print(json_string)
+    # print(json_string)
+    #normal_obj = json.loads(json_string)
+    json_obj = json.dumps(json_string)
+    print(json_obj)
     text:str = "hello"
 
 
