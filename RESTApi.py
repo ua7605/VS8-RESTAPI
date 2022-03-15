@@ -17,6 +17,11 @@ class RetrieveVesselData(Resource):
         # return read_json_file(file_name="data.json")
 
 
+class VesselSpeed(Resource):
+    def get(self):
+        return {"speed": database.get_vessel_current_speed()}
+
+
 class HelloWorld(Resource):
     def get(self):
         return {"about": "Hello world"}
@@ -34,3 +39,4 @@ class Multi(Resource):
 api.add_resource(HelloWorld, "/helloworld")
 api.add_resource(Multi, "/multi/go/<int:num>")
 api.add_resource(RetrieveVesselData, "/data")
+api.add_resource(VesselSpeed, "/data/speed")
