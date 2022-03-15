@@ -33,4 +33,4 @@ class Multi(Resource):
 
 api.add_resource(HelloWorld, "/helloworld")
 api.add_resource(Multi, "/multi/go/<int:num>")
-api.add_resource(RetrieveVesselData, "/retrieveVesselData")
+api.add_resource(RetrieveVesselData, "/data")
