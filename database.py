@@ -32,3 +32,5 @@ class Database:
 
     def get_vessel_historical_data(self):
         return self.db.all()
+
+# TODO: create a function to loop over the data and to things with it.
