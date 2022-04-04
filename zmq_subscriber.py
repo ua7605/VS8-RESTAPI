@@ -81,8 +81,8 @@ class ZMQSubscriberSeafar:
             # The database is for the moment out commented at the Virtual Wall just for storing puposes sine nobody
             # is using it right now.
             db.insert(data)
-            database_counter = self.database_clearer(db, database_counter, 200)
-            print("counter: ", database_counter)
+            database_counter = self.database_clearer(db, database_counter, 200) #So the data will be deleted out of the database every 200 seconds!
+
             # write_to_json(path='./', file_name='data.json', data=message)
 
             publisher.publisher_zmq.publish("type", json.dumps({"type": data.type}))
@@ -109,7 +109,7 @@ class ZMQSubscriberSeafar:
         if database_counter >= after_how_many_seconds:
             database_counter = 0
             db.empty_database()  # TODO here the database will be rested
-            print("Database is cleared")
+            # TODO: the data that I now delete needs to be stored in a second database that will contain all the data. But this is to be implemented
         else:
             database_counter += 1
         return database_counter
