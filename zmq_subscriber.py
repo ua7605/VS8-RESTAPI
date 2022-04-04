@@ -61,6 +61,8 @@ class ZMQSubscriberSeafar:
 
         db = Database()
 
+        database_counter: int = 0
+
         while True:
             message = self.socket.recv_json()
             # print('Received data of Tercofin II:')
@@ -79,8 +81,9 @@ class ZMQSubscriberSeafar:
             # The database is for the moment out commented at the Virtual Wall just for storing puposes sine nobody
             # is using it right now.
             db.insert(data)
-
-            write_to_json(path='./', file_name='data.json', data=message)
+            database_counter = self.database_clearer(db, database_counter, 200)
+            print("counter: ", database_counter)
+            # write_to_json(path='./', file_name='data.json', data=message)
 
             publisher.publisher_zmq.publish("type", json.dumps({"type": data.type}))
 
@@ -102,4 +105,10 @@ class ZMQSubscriberSeafar:
 
             publisher.publisher_zmq.publish("allData", json.dumps(message))
 
-
+    def database_clearer(self, db: Database, database_counter: int, after_how_many_seconds: int):
+        if database_counter >= after_how_many_seconds:
+            database_counter = 0
+            db.empty_database()  # TODO here the database will be rested
+        else:
+            database_counter += 1
+        return database_counter
