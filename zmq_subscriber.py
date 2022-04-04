@@ -109,6 +109,7 @@ class ZMQSubscriberSeafar:
         if database_counter >= after_how_many_seconds:
             database_counter = 0
             db.empty_database()  # TODO here the database will be rested
+            print("Database is cleared")
         else:
             database_counter += 1
         return database_counter
