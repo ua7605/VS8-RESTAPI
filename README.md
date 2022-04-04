@@ -1,6 +1,6 @@
-# zmqpubsubdemo
+# VS8 
 
-Python demo Publisher and Subscriber are using ZMQ. The public IP adress of IMEC server is 193.190.127.147, and port 2001. 
+The public IP adress of IMEC server is 193.190.127.147, and port 2001. 
 To retrieve data from VS8 you need to make a subscriber (an example is provided in the Python file "subscriber.py"). To retrieve data from a particular topic you give in the name of the topic and a callback funtion to receive and process the data.
 
 ## Installation
@@ -43,3 +43,14 @@ To retrieve data from VS8 you need to make a subscriber (an example is provided 
 - `subscriber.subscribe(topic="epochSeconds", callback=callbackFunc)`
 9. type, to retrieve only the type you need to subscribe to the topic "type", like this:
 - `subscriber.subscribe(topic="type", callback=callbackFunc)`
+### How to use the REST API
+1. To retrieve the latest data the Seafar vessel is sending
+- `curl http://193.190.127.147:5000/data`
+2. speed, to retrieve only the speed it is, like this:
+- `curl http://193.190.127.147:5000/data/speed`
+3. heading, to retrieve only the speed it is, like this:
+- `curl http://193.190.127.147:5000/data/heading`
+4. location, to retrieve only the location it is, like this:
+- `curl http://193.190.127.147:5000/data/location`
+5. historical data, to retrieve all the historical data it is, like this:
+- `curl http://193.190.127.147:5000/data/historicalData`
